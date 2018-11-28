@@ -1,0 +1,66 @@
+[debug] [2018-11-28T03:48:42.144Z] ----------------------------------------------------------------------
+[debug] [2018-11-28T03:48:42.146Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2018-11-28T03:48:42.146Z] CLI Version:   6.1.1
+[debug] [2018-11-28T03:48:42.146Z] Platform:      darwin
+[debug] [2018-11-28T03:48:42.146Z] Node Version:  v8.12.0
+[debug] [2018-11-28T03:48:42.147Z] Time:          Wed Nov 28 2018 00:48:42 GMT-0300 (-03)
+[debug] [2018-11-28T03:48:42.147Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-28T03:48:42.156Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-28T03:48:42.156Z] > authorizing via signed-in user
+[debug] [2018-11-28T03:48:42.156Z] [iam] checking project mediation-40355 for permissions ["firebase.projects.get"]
+[debug] [2018-11-28T03:48:42.158Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mediation-40355:testIamPermissions  
+
+[debug] [2018-11-28T03:48:43.331Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-28T03:48:43.333Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mediation-40355  
+ 
+[debug] [2018-11-28T03:48:44.465Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/salimchemes/mediation'...
+[info] 
+[debug] [2018-11-28T03:48:45.435Z] Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/logs'
+    at Object.fs.mkdirSync (fs.js:885:18)
+    at Object.assertLogsPath (/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/emulator/logs.js:65:10)
+    at new Controller (/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/cli/controller.js:77:32)
+    at FunctionsEmulator.start (/usr/local/lib/node_modules/firebase-tools/lib/functionsEmulator.js:102:23)
+    at Object.start (/usr/local/lib/node_modules/firebase-tools/lib/serve/functions.js:7:33)
+    at /usr/local/lib/node_modules/firebase-tools/lib/serve/index.js:15:23
+    at arrayMap (/usr/local/lib/node_modules/firebase-tools/node_modules/lodash/lodash.js:639:23)
+    at Function.map (/usr/local/lib/node_modules/firebase-tools/node_modules/lodash/lodash.js:9556:14)
+    at _serve (/usr/local/lib/node_modules/firebase-tools/lib/serve/index.js:13:26)
+    at Command.module.exports.Command.description.option.option.option.option.before.action [as _action] (/usr/local/lib/node_modules/firebase-tools/lib/commands/serve.js:55:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-11-28T03:49:24.597Z] ----------------------------------------------------------------------
+[debug] [2018-11-28T03:49:24.599Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2018-11-28T03:49:24.599Z] CLI Version:   6.1.1
+[debug] [2018-11-28T03:49:24.599Z] Platform:      darwin
+[debug] [2018-11-28T03:49:24.599Z] Node Version:  v8.12.0
+[debug] [2018-11-28T03:49:24.600Z] Time:          Wed Nov 28 2018 00:49:24 GMT-0300 (-03)
+[debug] [2018-11-28T03:49:24.600Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-28T03:49:24.609Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-28T03:49:24.609Z] > authorizing via signed-in user
+[debug] [2018-11-28T03:49:24.609Z] [iam] checking project mediation-40355 for permissions ["firebase.projects.get"]
+[debug] [2018-11-28T03:49:24.611Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mediation-40355:testIamPermissions  
+
+[debug] [2018-11-28T03:49:25.891Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-28T03:49:25.893Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mediation-40355  
+ 
+[debug] [2018-11-28T03:49:27.112Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/salimchemes/mediation'...
+[info] 
+[debug] [2018-11-28T03:49:28.002Z] Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/logs'
+    at Object.fs.mkdirSync (fs.js:885:18)
+    at Object.assertLogsPath (/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/emulator/logs.js:65:10)
+    at new Controller (/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/cli/controller.js:77:32)
+    at FunctionsEmulator.start (/usr/local/lib/node_modules/firebase-tools/lib/functionsEmulator.js:102:23)
+    at Object.start (/usr/local/lib/node_modules/firebase-tools/lib/serve/functions.js:7:33)
+    at /usr/local/lib/node_modules/firebase-tools/lib/serve/index.js:15:23
+    at arrayMap (/usr/local/lib/node_modules/firebase-tools/node_modules/lodash/lodash.js:639:23)
+    at Function.map (/usr/local/lib/node_modules/firebase-tools/node_modules/lodash/lodash.js:9556:14)
+    at _serve (/usr/local/lib/node_modules/firebase-tools/lib/serve/index.js:13:26)
+    at Command.module.exports.Command.description.option.option.option.option.before.action [as _action] (/usr/local/lib/node_modules/firebase-tools/lib/commands/serve.js:55:12)
+[error] 
+[error] Error: An unexpected error has occurred.
