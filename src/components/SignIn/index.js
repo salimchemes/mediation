@@ -6,10 +6,10 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
-
+import { Button, FormGroup, FormLabel, FormControl } from "react-bootstrap";
 const SignInPage = () => (
-  <div>
-    <h1>Iniciar Sesión</h1>
+  <div className='container'>
+    <h3>Iniciar Sesión</h3>
     <SignInForm />
     {/* <SignInGoogle />
     <SignInFacebook />
@@ -49,7 +49,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME);
+        this.props.history.push(ROUTES.GUEST);
       })
       .catch(error => {
         this.setState({ error });
@@ -68,27 +68,29 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Correo electrónico"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
+      <div className="container">
+        <form onSubmit={this.onSubmit}>
+          <input
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Correo electrónico"
+          />
+          <input
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+          <button disabled={isInvalid} type="submit">
+            Sign In
         </button>
 
-        {error && <p>{error.message}</p>}
-      </form>
+          {error && <p>{error.message}</p>}
+        </form>
+      </div>
     );
   }
 }
@@ -114,7 +116,7 @@ class SignInGoogleBase extends Component {
           })
           .then(() => {
             this.setState({ error: null });
-            this.props.history.push(ROUTES.HOME);
+            this.props.history.push(ROUTES.GUEST);
           })
           .catch(error => {
             this.setState({ error });
@@ -165,7 +167,7 @@ class SignInFacebookBase extends Component {
           })
           .then(() => {
             this.setState({ error: null });
-            this.props.history.push(ROUTES.HOME);
+            this.props.history.push(ROUTES.GUEST);
           })
           .catch(error => {
             this.setState({ error });
@@ -216,7 +218,7 @@ class SignInTwitterBase extends Component {
           })
           .then(() => {
             this.setState({ error: null });
-            this.props.history.push(ROUTES.HOME);
+            this.props.history.push(ROUTES.GUEST);
           })
           .catch(error => {
             this.setState({ error });

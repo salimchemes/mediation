@@ -5,6 +5,9 @@ import { AuthUserContext, withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
 import Calendar from 'react-calendar';
 import './index.css';
+import { Button, ButtonToolbar } from 'react-bootstrap';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 class HomePage extends Component {
   constructor() {
@@ -16,6 +19,7 @@ class HomePage extends Component {
       text: '',
       messages: [],
       users: {},
+      date: new Date,
     };
   }
 
@@ -46,8 +50,9 @@ class HomePage extends Component {
     this.props.firebase.messages().off();
   }
 
-  onChange = event => {
-    this.setState({ text: event.target.value });
+  onChange = selectedDate => {
+    console.log(selectedDate);
+    this.setState({ date: selectedDate });
   };
 
   onSubmit = (event, authUser) => {
@@ -63,6 +68,7 @@ class HomePage extends Component {
     event.preventDefault();
   };
 
+
   render() {
     const {
       messages,
@@ -76,21 +82,20 @@ class HomePage extends Component {
 
     return (
       <AuthUserContext.Consumer>
-        {authUser => (
-          <div className="container">
-            <h1>Home Page</h1>
-            <p>
-              The Home Page is accessible by every signed in user.
-            </p> 
-            <Calendar
-              onChange={this.onChange}
-              value={this.state.date}
-            />
-            {!loading && (
-              <MessageList messages={messages} users={users} />
-            )}
-          </div>
-        )}
+        {() => (<div className="container">
+          <h3>Nuevo Turno</h3>
+          <p>
+            Fecha solicitada de turno:
+            <Moment format="DD/MM/YYYY">
+              {this.state.date}
+            </Moment>
+          </p>
+          <Calendar onChange={this.onChange} value={this.state.date} />
+          {!loading && (<MessageList messages={messages} users={users} />)}
+          <ButtonToolbar>
+            <Button variant="primary" className="button-container">Ver turnos</Button>
+          </ButtonToolbar>
+        </div>)}
       </AuthUserContext.Consumer>
     );
   }

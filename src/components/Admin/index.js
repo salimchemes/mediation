@@ -4,7 +4,7 @@ import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 import * as ROLES from '../../constants/roles';
-
+import { Table, Button } from 'react-bootstrap';
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -40,48 +40,67 @@ class AdminPage extends Component {
     this.props.firebase.user(userId).remove();
   };
 
+  addUser = () => {
+    alert('nuevo user');
+  }
+
   render() {
     const { users, loading } = this.state;
 
     return (
-      <div>
-        <h1>Admin</h1>
+      <div className='container'>
+        <h3>Admin</h3>
         <p>
-          The Admin Page is accessible by every signed in admin user.
+          Administración de usuarios
         </p>
 
         {loading && <div>Loading ...</div>}
-
+        <p> 
+          <Button variant='primary' onClick={this.addUser}> Nuevo Usuario
+        </Button>
+        </p>
         <UserList users={users} onRemove={this.onRemove} />
       </div>
+
+
     );
   }
 }
 
 const UserList = ({ users, onRemove }) => (
-  <ul>
-    {users.map(user => (
-      <li key={user.uid}>
-        <span>
-          <strong>ID:</strong> {user.uid}
-        </span>
-        <span>
-          <strong>E-Mail:</strong> {user.email}
-        </span>
-        <span>
-          <strong>Username:</strong> {user.username}
-        </span>
-        <span>
-          <strong>Roles:</strong> {(user.roles || []).join('')}
-        </span>
-        <span>
-          <button type="button" onClick={() => onRemove(user.uid)}>
-            Remove
-          </button>
-        </span>
-      </li>
-    ))}
-  </ul>
+  <Table striped bordered hover responsive='sm'>
+    <thead>
+      <tr>
+        <th>Usuario </th>
+        <th>email</th>
+        <th>Rol</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      {users.map(user => (
+        <tr key={user.uid}>
+          <td>
+            {user.username}
+          </td>
+          <td>
+            {user.email}
+          </td>
+          <td>
+            {(user.roles || ['GUEST']).join('')}
+          </td>
+          <td>
+            <Button variant='danger' onClick={() => onRemove(user.uid)}>
+              Eliminar
+          </Button>
+          </td>
+        </tr>
+      ))}
+      <tr>
+      </tr>
+    </tbody>
+
+  </Table>
 );
 
 const condition = authUser =>
