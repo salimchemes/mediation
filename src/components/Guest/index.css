@@ -2,5 +2,8 @@
     margin:2px;
 }
 .button-container{
-    margin-top:10px;
+    margin-bottom:10px;
+}
+.date-format{
+    font-weight: bold;
 }

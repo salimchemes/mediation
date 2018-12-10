@@ -56,13 +56,11 @@ class AdminPage extends Component {
 
         {loading && <div>Loading ...</div>}
         <p> 
-          <Button variant='primary' onClick={this.addUser}> Nuevo Usuario
+          <Button variant='dark' onClick={this.addUser}> Nuevo Usuario
         </Button>
         </p>
         <UserList users={users} onRemove={this.onRemove} />
       </div>
-
-
     );
   }
 }
@@ -99,7 +97,6 @@ const UserList = ({ users, onRemove }) => (
       <tr>
       </tr>
     </tbody>
-
   </Table>
 );
 

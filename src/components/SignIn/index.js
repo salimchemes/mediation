@@ -6,7 +6,8 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
-import { Button, FormGroup, FormLabel, FormControl } from "react-bootstrap";
+// import { Button, FormGroup, FormLabel, FormControl } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 const SignInPage = () => (
   <div className='container'>
     <h3>Iniciar Sesión</h3>
@@ -84,9 +85,9 @@ class SignInFormBase extends Component {
             type="password"
             placeholder="Password"
           />
-          <button disabled={isInvalid} type="submit">
+          <Button variant='dark' disabled={isInvalid} type="submit">
             Sign In
-        </button>
+        </Button>
 
           {error && <p>{error.message}</p>}
         </form>
